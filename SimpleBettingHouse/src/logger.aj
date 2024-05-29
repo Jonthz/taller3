@@ -20,6 +20,12 @@ pointcut signUp(User user): execution(* BettingHouse.successfulSignUp(..)) && ar
  after(User user): signUp(user) {
      logAction(file1, "Registrar usuario", user.getNickname());
  }
+ after(User user): logIn(user) {
+     logAction(file2, "Iniciar sesión", user.getNickname());
+ }
 
+ after(User user): logOut(user) {
+     logAction(file2, "Cerrar sesión", user.getNickname());
+ }
  
 }
