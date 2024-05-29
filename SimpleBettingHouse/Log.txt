@@ -1,0 +1,2 @@
+Acción: Iniciar sesión, Usuario: Djpp, Fecha: 29/5/2024 Hora:16-24
+Acción: Cerrar sesión, Usuario: Djpp, Fecha: 29/5/2024 Hora:16-24
