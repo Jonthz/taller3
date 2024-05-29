@@ -15,9 +15,7 @@ pointcut signUp(User user): execution(* BettingHouse.successfulSignUp(..)) && ar
     
  pointcut logIn(User user): execution(* BettingHouse.effectiveLogIn(..)) && args(user);
  
- pointcut logOut(User user): execution(* BettingHouse.effectiveLogOut(..)) && args(user);
+ 
 
- after(User user): signUp(user) {
-     logAction(file1, "Registrar usuario", user.getNickname());
- }
+ 
 }
