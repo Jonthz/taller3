@@ -14,4 +14,10 @@ File file2 = new File("Log.txt");
 pointcut signUp(User user): execution(* BettingHouse.successfulSignUp(..)) && args(user, ..);
     
  pointcut logIn(User user): execution(* BettingHouse.effectiveLogIn(..)) && args(user);
+ 
+ pointcut logOut(User user): execution(* BettingHouse.effectiveLogOut(..)) && args(user);
+
+ after(User user): signUp(user) {
+     logAction(file1, "Registrar usuario", user.getNickname());
+ }
 }
