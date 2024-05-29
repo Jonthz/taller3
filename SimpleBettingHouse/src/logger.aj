@@ -18,7 +18,8 @@ pointcut signUp(User user): execution(* BettingHouse.successfulSignUp(..)) && ar
      logAction("Register.txt", "Registrar usuario", user.getNickname());
  }
  after(User user): logInOut(user) {
-     String action= thisJoinPoint.getSignature().getName().startsWith("effective")?"Iniciar sesión":"Cerrar sesión";
+     String methodName = thisJoinPoint.getSignature().getName();
+     String action = methodName.equals("effectiveLogIn") ? "Iniciar sesión" : (methodName.equals("effectiveLogOut") ? "Cerrar sesión" : null);
      logAction("Log.txt", action, user.getNickname());
  }
  private void logAction(String file, String action, String username) {
