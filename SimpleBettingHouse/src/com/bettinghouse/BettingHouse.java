@@ -16,6 +16,7 @@ public class BettingHouse {
     }
 
     public static void main(String[] args) {
+    	//a
         int opcion = 0;
         initBettingHouse();
         while(opcion != EXIT){
