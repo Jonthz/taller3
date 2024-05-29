@@ -27,5 +27,13 @@ pointcut signUp(User user): execution(* BettingHouse.successfulSignUp(..)) && ar
  after(User user): logOut(user) {
      logAction(file2, "Cerrar sesión", user.getNickname());
  }
+ private void logAction(File file, String action, String username) {
+     try (PrintWriter writer = new PrintWriter(new FileOutputStream(file, true))) {
+         writer.write("Acción: " + action + ", Usuario: " + username + ", Fecha: " + LocalDateTime.now().getDayOfMonth()+"/"+LocalDateTime.now().getMonthValue()+"/"+LocalDateTime.now().getYear()+" Hora:"+LocalDateTime.now().getHour()+"-"+LocalDateTime.now().getMinute() + "\n");
+         System.out.println("Hola");
+     } catch (Exception e) {
+         System.out.println(e.getMessage());
+     }
+ }
  
 }
